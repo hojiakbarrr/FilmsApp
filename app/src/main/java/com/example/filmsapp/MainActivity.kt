@@ -29,29 +29,26 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        database = Firebase.database.reference
-//        database.child("hoji").child("userId2").setValue("user3")
+        database = Firebase.database.reference
+        database.child("hoji").child("userId2").setValue("user3")
 
-//        register.setOnClickListener {
-//            val intent = Intent(this, RegistrationActivity::class.java)
-//            startActivity(intent)
-//        }
+
 
         val intent = Intent(this, Movies_Activity::class.java)
         startActivity(intent)
 
-//        database = Firebase.database.reference
-//
-//        // Choose authentication providers
-//        val providers = arrayListOf(
-//            AuthUI.IdpConfig.EmailBuilder().build())
-//
-//// Create and launch sign-in intent
-//        val signInIntent = AuthUI.getInstance()
-//            .createSignInIntentBuilder()
-//            .setAvailableProviders(providers)
-//            .build()
-//        signInLauncher.launch(signInIntent)
+        database = Firebase.database.reference
+
+        // Choose authentication providers
+        val providers = arrayListOf(
+            AuthUI.IdpConfig.EmailBuilder().build())
+
+// Create and launch sign-in intent
+        val signInIntent = AuthUI.getInstance()
+            .createSignInIntentBuilder()
+            .setAvailableProviders(providers)
+            .build()
+        signInLauncher.launch(signInIntent)
 
     }
 
