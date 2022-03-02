@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/user/AndroidStudioProjects/FilmsApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/FilmsApp/app/src/main/res/layout/activity_movie_details.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/FilmsApp/app/src/main/res/layout/activity_movies.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/FilmsApp/app/src/main/res/layout/cardview_xml_file.xml" value="0.2" />
         <entry key="..\:/Users/user/AndroidStudioProjects/FilmsApp/app/src/main/res/layout/moviesActivity.xml" value="0.18802083333333333" />

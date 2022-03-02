@@ -8,7 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class CustomAdapter(private val mList: List<Result>?) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(private val mList: List<Result>?, val mItemclickListener: ItemClickListener) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+
+    interface ItemClickListener{
+        fun onItemClick(id: Int)
+    }
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -42,9 +46,15 @@ class CustomAdapter(private val mList: List<Result>?) : RecyclerView.Adapter<Cus
     }
 
     // Holds the views for adding it to image and text
-    class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
+   inner class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageview)
 //        val textView: TextView = itemView.findViewById(R.id.textView)
+        init {
+            ItemView.setOnClickListener {
+                mList?.get(position)?.let { it -> mItemclickListener.onItemClick(it.id) }
+            }
+        }
+
     }
 
 }
