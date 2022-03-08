@@ -49,7 +49,7 @@ class MovieDetailsActivity : AppCompatActivity() {
 
 //        val apiInterface = ApiInterface.create().getMovies("1f49a5f345e0c857c3814334f71e360d")
         val responseMovie =
-            ApiInterface.create().getMoviesDetails(id, "1f49a5f345e0c857c3814334f71e360d")
+            ApiInterface.create().getMoviesDetails(id,"ru", "1f49a5f345e0c857c3814334f71e360d")
         val responseMovieTrailer = ApiInterface.create().getMovieTrailer(id,"1f49a5f345e0c857c3814334f71e360d")
 
         responseMovie.enqueue(object : Callback<MovieDetails> {

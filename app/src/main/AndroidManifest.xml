@@ -12,6 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FilmsApp">
         <activity
+            android:name=".ui.Actors_Detail_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ActorDetailsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_actor_details"
+            android:theme="@style/Theme.FilmsApp.NoActionBar" />
+        <activity
             android:name=".ui.MovieDetailsActivity"
             android:exported="false" />
         <activity

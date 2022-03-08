@@ -1,5 +1,7 @@
 package com.example.filmsapp.api
 
+import com.example.filmsapp.actor_details.actor_details_model
+import com.example.filmsapp.actors.Actors_model
 import com.example.filmsapp.movie_details_model.MovieDetails
 import com.example.filmsapp.popular_movies_model.Movies
 import com.example.filmsapp.top_rated_movie_model.Rating
@@ -22,6 +24,7 @@ interface ApiInterface {
     @GET("movie/{movie_id}")
     fun getMoviesDetails(
         @Path("movie_id") movieId: Int,
+        @Query("language")language:String,
         @Query("api_key") sort: String,
     ): Call<MovieDetails>
 
@@ -41,10 +44,32 @@ interface ApiInterface {
         @Query("query") name: String,
     ): Call<Movies>
 
+    @GET("person/popular")
+    fun getPerson(
+        @Query("api_key") api_key: String,
+        @Query("language") language: String
+    ): Call<Actors_model>
+
+    @GET("search/person")
+    fun getSearchActor(
+        @Query("api_key") api_key: String,
+        @Query("language") language: String,
+        @Query("query") name: String,
+        ): Call<Actors_model>
+
+    @GET("person/{person_id}")
+    fun getActorssDetails(
+        @Path("person_id") personId: Int,
+        @Query("language")language:String,
+        @Query("api_key") sort: String,
+    ): Call<actor_details_model>
+
+
     companion object {
 
         var BASE_URL = "https://api.themoviedb.org/3/"
         var API_KEY = "1f49a5f345e0c857c3814334f71e360d"
+        var RU = "ru"
 
         fun create(): ApiInterface {
             val httpLoginInterceptor = HttpLoggingInterceptor()

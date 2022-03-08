@@ -25,19 +25,11 @@ class CustomAdapter(private val mList: List<Result>?, val mItemclickListener: It
         return ViewHolder(view)
     }
 
-    // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val ItemsViewModel = mList?.get(position)
 
         Picasso.get().load("https://image.tmdb.org/t/p/w500" + mList?.get(position)?.poster_path).into(holder.imageView)
-
-
-        // sets the image to the imageview from our itemHolder class
-//        holder.imageView.setImageResource(ItemsViewModel.image)
-
-        // sets the text to the textview from our itemHolder class
-//        holder.textView.text = ItemsViewModel?.title
 
     }
 
