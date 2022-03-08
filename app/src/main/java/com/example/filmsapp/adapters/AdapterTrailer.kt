@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.filmsapp.DataTrailer
+import com.example.filmsapp.trailers_model.DataTrailer
 import com.example.filmsapp.R
 import com.example.filmsapp.databinding.TrailerMoviesBinding
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants

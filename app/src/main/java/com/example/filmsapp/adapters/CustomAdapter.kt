@@ -1,14 +1,15 @@
-package com.example.filmsapp
+package com.example.filmsapp.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.filmsapp.R
+import com.example.filmsapp.popular_movies_model.Result
 import com.squareup.picasso.Picasso
 
-class CustomAdapter(private val mList: List<ResultX>?, val mItemclickListener: ItemClickListener) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(private val mList: List<Result>?, val mItemclickListener: ItemClickListener) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     interface ItemClickListener{
         fun onItemClick(id: Int)

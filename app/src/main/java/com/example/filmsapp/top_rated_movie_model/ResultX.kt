@@ -1,4 +1,4 @@
-package com.example.filmsapp
+package com.example.filmsapp.top_rated_movie_model
 
 data class ResultX(
     val adult: Boolean,

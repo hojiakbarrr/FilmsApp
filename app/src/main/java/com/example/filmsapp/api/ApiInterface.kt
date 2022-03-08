@@ -1,5 +1,9 @@
-package com.example.filmsapp
+package com.example.filmsapp.api
 
+import com.example.filmsapp.movie_details_model.MovieDetails
+import com.example.filmsapp.popular_movies_model.Movies
+import com.example.filmsapp.top_rated_movie_model.Rating
+import com.example.filmsapp.trailers_model.TrailerResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -31,9 +35,16 @@ interface ApiInterface {
 
     ): Call<TrailerResponse>
 
+    @GET("search/movie")
+    fun getSearch(
+        @Query("api_key") api_key: String,
+        @Query("query") name: String,
+    ): Call<Movies>
+
     companion object {
 
         var BASE_URL = "https://api.themoviedb.org/3/"
+        var API_KEY = "1f49a5f345e0c857c3814334f71e360d"
 
         fun create(): ApiInterface {
             val httpLoginInterceptor = HttpLoggingInterceptor()

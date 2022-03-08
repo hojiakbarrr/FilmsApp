@@ -1,4 +1,4 @@
-package com.example.filmsapp
+package com.example.filmsapp.trailers_model
 
 import com.google.gson.annotations.SerializedName
 

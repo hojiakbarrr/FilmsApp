@@ -1,4 +1,4 @@
-package com.example.filmsapp
+package com.example.filmsapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.filmsapp.R
 import com.example.filmsapp.adapters.AdapterTrailer
+import com.example.filmsapp.api.ApiInterface
+import com.example.filmsapp.movie_details_model.MovieDetails
+import com.example.filmsapp.trailers_model.TrailerResponse
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
