@@ -47,15 +47,12 @@ class MovieDetailsActivity : AppCompatActivity() {
         trailer.adapter = trailerAdapter
 
 
-//        val apiInterface = ApiInterface.create().getMovies("1f49a5f345e0c857c3814334f71e360d")
         val responseMovie =
             ApiInterface.create().getMoviesDetails(id,"ru", "1f49a5f345e0c857c3814334f71e360d")
-        val responseMovieTrailer = ApiInterface.create().getMovieTrailer(id,"1f49a5f345e0c857c3814334f71e360d")
+        val responseMovieTrailer = ApiInterface.create().getMovieTrailer(id,ApiInterface.RU,"1f49a5f345e0c857c3814334f71e360d")
 
         responseMovie.enqueue(object : Callback<MovieDetails> {
             override fun onResponse(call: Call<MovieDetails>?, response: Response<MovieDetails>?) {
-
-                // Setting the Adapter with the recyclerview
 
                 title.text = response!!.body()!!.title
                 releaseDate.text = response.body()!!.release_date
@@ -66,12 +63,9 @@ class MovieDetailsActivity : AppCompatActivity() {
                     .load("https://image.tmdb.org/t/p/w500" + response.body()!!.poster_path)
                     .into(banner)
 
-//                banner.setImageResource(response.body()!!.poster_path as Int)
 
 
                 Log.d("testLogs", "OnResponse Success ${response?.body()?.title}")
-//                if(response?.body() != null)
-//                    recyclerAdapter.setMovieListItems(response.body()!!)
             }
 
             override fun onFailure(call: Call<MovieDetails>?, t: Throwable?) {

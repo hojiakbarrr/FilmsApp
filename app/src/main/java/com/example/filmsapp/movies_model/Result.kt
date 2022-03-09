@@ -1,6 +1,6 @@
-package com.example.filmsapp.top_rated_movie_model
+package com.example.filmsapp.movies_model
 
-data class ResultX(
+data class Result(
     val adult: Boolean,
     val backdrop_path: String,
     val genre_ids: List<Int>,

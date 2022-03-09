@@ -6,9 +6,8 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.filmsapp.R
-import com.example.filmsapp.actor_details.actor_details_model
+import com.example.filmsapp.actor_details_model.actor_details_model
 import com.example.filmsapp.api.ApiInterface
-import com.google.android.gms.common.api.Api
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback

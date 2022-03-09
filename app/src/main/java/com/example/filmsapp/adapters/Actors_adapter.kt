@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filmsapp.R
-import com.example.filmsapp.actors.Result
+import com.example.filmsapp.actors_model.Result
 import com.squareup.picasso.Picasso
 
 

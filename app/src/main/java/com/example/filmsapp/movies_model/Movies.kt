@@ -1,6 +1,4 @@
-package com.example.filmsapp.popular_movies_model
-
-import com.example.filmsapp.popular_movies_model.Result
+package com.example.filmsapp.movies_model
 
 data class Movies(
     val page: Int,

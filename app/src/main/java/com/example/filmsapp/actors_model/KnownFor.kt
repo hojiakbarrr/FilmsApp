@@ -1,4 +1,4 @@
-package com.example.filmsapp.actors
+package com.example.filmsapp.actors_model
 
 data class KnownFor(
     val adult: Boolean,
