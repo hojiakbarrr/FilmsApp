@@ -58,6 +58,7 @@ class MovieDetailsActivity : AppCompatActivity() {
 
         responseMovie.enqueue(object : Callback<MovieDetails> {
             @SuppressLint("NotifyDataSetChanged")
+            ///место прогресс бара
             override fun onResponse(call: Call<MovieDetails>?, response: Response<MovieDetails>?) {
 
                 title.text = response!!.body()!!.title

@@ -1,5 +1,6 @@
 package com.example.filmsapp.database
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +9,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.filmsapp.R
 import com.squareup.picasso.Picasso
 
-class Movie_base_Adapter (private val mList: List<Movie_model_base>?, val mItemclickListener: Movie_base_Adapter.ItemClickListener) :
+class Movie_base_Adapter (val mItemclickListener: Movie_base_Adapter.ItemClickListener) :
     RecyclerView.Adapter<Movie_base_Adapter.ViewHolder>(){
     interface ItemClickListener {
         fun onItemClick(id: Int)
         fun delete(movie: Movie_model_base)
+    }
+    var mList:List<Movie_model_base> = emptyList()
+    @SuppressLint("NotifyDataSetChanged")
+    set(newValue){
+        field=newValue
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Movie_base_Adapter.ViewHolder {
@@ -22,11 +29,11 @@ class Movie_base_Adapter (private val mList: List<Movie_model_base>?, val mItemc
         return ViewHolder(view)    }
 
     override fun onBindViewHolder(holder: Movie_base_Adapter.ViewHolder, position: Int) {
-        Picasso.get().load("https://image.tmdb.org/t/p/w500" + mList?.get(position)?.poster_path).into(holder.imageView)
+        Picasso.get().load("https://image.tmdb.org/t/p/w500" + mList.get(position).poster_path).into(holder.imageView)
     }
 
     override fun getItemCount(): Int {
-        return this.mList!!.size
+        return this.mList.size
     }
 
     inner class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {

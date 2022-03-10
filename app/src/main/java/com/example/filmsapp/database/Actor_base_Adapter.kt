@@ -1,5 +1,6 @@
 package com.example.filmsapp.database
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +11,18 @@ import com.example.filmsapp.R
 import com.example.filmsapp.actors_model.Actor
 import com.squareup.picasso.Picasso
 
-class Actor_base_Adapter(private val mList: List<Actor_model_base>? , val mItemclickListener: Actor_base_Adapter.ItemClickListener): RecyclerView.Adapter<Actor_base_Adapter.ViewHolder>() {
+class Actor_base_Adapter( val mItemclickListener: Actor_base_Adapter.ItemClickListener): RecyclerView.Adapter<Actor_base_Adapter.ViewHolder>() {
     interface ItemClickListener {
         fun onActorClick(id: Int)
         fun delete(actor: Actor_model_base)
     }
+
+    var mList:List<Actor_model_base> = emptyList()
+        @SuppressLint("NotifyDataSetChanged")
+        set(newValue){
+            field=newValue
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -24,11 +32,11 @@ class Actor_base_Adapter(private val mList: List<Actor_model_base>? , val mItemc
         return ViewHolder(view)    }
 
     override fun onBindViewHolder(holder: Actor_base_Adapter.ViewHolder, position: Int) {
-        Picasso.get().load("https://image.tmdb.org/t/p/w500" + mList?.get(position)?.profile_path).into(holder.imageView)
-        holder.textView.text = mList!![position].name    }
+        Picasso.get().load("https://image.tmdb.org/t/p/w500" + mList.get(position).profile_path).into(holder.imageView)
+        holder.textView.text = mList[position].name    }
 
     override fun getItemCount(): Int {
-        return mList!!.size
+        return mList.size
     }
 
     inner class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
@@ -38,13 +46,13 @@ class Actor_base_Adapter(private val mList: List<Actor_model_base>? , val mItemc
 
         init {
             ItemView.setOnClickListener {
-                mList?.get(position)?.let { it -> mItemclickListener.onActorClick(it.id) }
+                mList.get(position).let { it -> mItemclickListener.onActorClick(it.id) }
             }
 
         }
         init {
             deleteMovie.setOnClickListener {
-                mList?.get(position)?.let { it -> mItemclickListener.delete(it) }
+                mList.get(position).let { it -> mItemclickListener.delete(it) }
             }
         }
 
