@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filmsapp.R
-import com.example.filmsapp.movies_model.Result
+import com.example.filmsapp.movies_model.ResultMovie
 import com.squareup.picasso.Picasso
 
-class CustomAdapter(private val mList: List<Result>?, val mItemclickListener: ItemClickListener) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(private val mList: List<ResultMovie>?, val mItemclickListener: ItemClickListener) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     interface ItemClickListener{
         fun onItemClick(id: Int)

@@ -1,8 +1,8 @@
 package com.example.filmsapp.actors_model
 
-data class Actors_model(
+data class ActorsResponce(
     val page: Int,
-    val results: List<Result>,
+    val results: List<Actor>,
     val total_pages: Int,
     val total_results: Int
 )

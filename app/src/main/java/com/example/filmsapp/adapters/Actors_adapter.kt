@@ -7,11 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filmsapp.R
-import com.example.filmsapp.actors_model.Result
+import com.example.filmsapp.actors_model.Actor
 import com.squareup.picasso.Picasso
 
 
-class Actors_adapter(private val mList: List<Result>?, val mItemclickListener: Actors_adapter.ItemClickListener, ) : RecyclerView.Adapter<Actors_adapter.ActorsViewHolder>() {
+class Actors_adapter(private val mList: List<Actor>?, val mItemclickListener: Actors_adapter.ItemClickListener, ) : RecyclerView.Adapter<Actors_adapter.ActorsViewHolder>() {
     interface ItemClickListener {
         fun onItemClick(id: Int)
     }

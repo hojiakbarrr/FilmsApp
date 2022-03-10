@@ -9,7 +9,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recActors"
+        android:id="@+id/movie"
         android:layout_width="394dp"
         android:layout_height="528dp"
         android:layout_marginStart="5dp"
@@ -30,8 +30,8 @@
         android:gravity="center"
         android:hint="Search actor"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/recActors"
-        app:layout_constraintStart_toStartOf="@+id/recActors" />
+        app:layout_constraintBottom_toTopOf="@+id/movie"
+        app:layout_constraintStart_toStartOf="@+id/movie" />
 
     <ImageView
         android:id="@+id/poiskActor"

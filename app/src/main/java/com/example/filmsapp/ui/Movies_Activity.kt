@@ -24,11 +24,11 @@ class Movies_Activity : AppCompatActivity() {
             when(position){
                 0->{
                     tab.setIcon(R.drawable.movie)
-                    tab.text = "All Movies"
+                    tab.text = "All MovieResponce"
                 }
                 1->{
                     tab.setIcon(R.drawable.person)
-                    tab.text = "Actors"
+                    tab.text = "Actor"
                 }
                 2->{
                     tab.setIcon(R.drawable.favorite)

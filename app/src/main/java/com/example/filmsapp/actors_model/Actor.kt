@@ -1,6 +1,6 @@
 package com.example.filmsapp.actors_model
 
-data class Result(
+data class Actor(
     val adult: Boolean,
     val gender: Int,
     val id: Int,

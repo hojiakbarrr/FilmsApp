@@ -1,9 +1,13 @@
 package com.example.filmsapp.movies_model
 
-data class Result(
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.io.Serializable
+
+
+data class ResultMovie(
     val adult: Boolean,
     val backdrop_path: String,
-    val genre_ids: List<Int>,
     val id: Int,
     val original_language: String,
     val original_title: String,
@@ -15,4 +19,4 @@ data class Result(
     val video: Boolean,
     val vote_average: Double,
     val vote_count: Int
-)
+):Serializable

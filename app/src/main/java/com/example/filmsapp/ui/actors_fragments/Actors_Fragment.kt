@@ -12,7 +12,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filmsapp.R
-import com.example.filmsapp.actors_model.Actors_model
+import com.example.filmsapp.actors_model.ActorsResponce
 import com.example.filmsapp.adapters.Actors_adapter
 import com.example.filmsapp.api.ApiInterface
 import com.example.filmsapp.ui.Actors_Detail_Activity
@@ -35,21 +35,21 @@ class Actors_Fragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         val v = inflater.inflate(R.layout.actors__fragment, container, false)
-        val recyclerview = v.findViewById<RecyclerView>(R.id.recActors)
+        val recyclerview = v.findViewById<RecyclerView>(R.id.movie)
         recyclerview.layoutManager = GridLayoutManager(requireContext(), 2)
         val ok = v.poiskActor
 
         val api = ApiInterface.create().getPerson(ApiInterface.API_KEY, ApiInterface.RU)
 
-        api.enqueue(object : Callback<Actors_model>, Actors_adapter.ItemClickListener {
+        api.enqueue(object : Callback<ActorsResponce>, Actors_adapter.ItemClickListener {
 
-            override fun onResponse(call: Call<Actors_model>, response: Response<Actors_model>) {
+            override fun onResponse(call: Call<ActorsResponce>, response: Response<ActorsResponce>) {
 
                 val adapter = Actors_adapter(response.body()?.results, this)
                 recyclerview.adapter = adapter
             }
 
-            override fun onFailure(call: Call<Actors_model>, t: Throwable) {
+            override fun onFailure(call: Call<ActorsResponce>, t: Throwable) {
                 TODO("Not yet implemented")
             }
 
@@ -74,18 +74,18 @@ class Actors_Fragment : Fragment() {
                 val apiInter =
                     ApiInterface.create().getSearchActor(ApiInterface.API_KEY, ApiInterface.RU,
                         text.toString())
-                apiInter.enqueue(object : Callback<Actors_model>, Actors_adapter.ItemClickListener {
+                apiInter.enqueue(object : Callback<ActorsResponce>, Actors_adapter.ItemClickListener {
 
                     override fun onResponse(
-                        call: Call<Actors_model>,
-                        response: Response<Actors_model>,
+                        call: Call<ActorsResponce>,
+                        response: Response<ActorsResponce>,
                     ) {
 
                         val adapter = Actors_adapter(response.body()?.results, this)
                         recyclerview.adapter = adapter
                     }
 
-                    override fun onFailure(call: Call<Actors_model>, t: Throwable) {
+                    override fun onFailure(call: Call<ActorsResponce>, t: Throwable) {
                         TODO("Not yet implemented")
                     }
 

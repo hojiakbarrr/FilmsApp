@@ -1,9 +1,9 @@
 package com.example.filmsapp.api
 
 import com.example.filmsapp.actor_details_model.actor_details_model
-import com.example.filmsapp.actors_model.Actors_model
+import com.example.filmsapp.actors_model.ActorsResponce
 import com.example.filmsapp.movie_details_model.MovieDetails
-import com.example.filmsapp.movies_model.Movies
+import com.example.filmsapp.movies_model.MovieResponce
 import com.example.filmsapp.trailers_model.TrailerResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -18,19 +18,19 @@ import java.util.concurrent.TimeUnit
 interface ApiInterface {
 
     @GET("movie/popular")
-    fun getPopularMovies(@Query("api_key") sort: String): Call<Movies>
+    fun getPopularMovies(@Query("api_key") sort: String): Call<MovieResponce>
 
     @GET("movie/upcoming")
-    fun getUpcomingMovies(@Query("api_key") sort: String): Call<Movies>
+    fun getUpcomingMovies(@Query("api_key") sort: String): Call<MovieResponce>
 
     @GET("movie/top_rated")
-    fun getTopRatedMovies(@Query("api_key") sort: String): Call<Movies>
+    fun getTopRatedMovies(@Query("api_key") sort: String): Call<MovieResponce>
 
     @GET("movie/now_playing")
-    fun getNowPlayingMovies(@Query("api_key") sort: String): Call<Movies>
+    fun getNowPlayingMovies(@Query("api_key") sort: String): Call<MovieResponce>
 
     @GET("movie/latest")
-    fun getLatestMovies(@Query("api_key") sort: String): Call<Movies>
+    fun getLatestMovies(@Query("api_key") sort: String): Call<MovieResponce>
 
     @GET("movie/{movie_id}")
     fun getMoviesDetails(
@@ -51,20 +51,20 @@ interface ApiInterface {
     fun getSearch(
         @Query("api_key") api_key: String,
         @Query("query") name: String,
-    ): Call<Movies>
+    ): Call<MovieResponce>
 
     @GET("person/popular")
     fun getPerson(
         @Query("api_key") api_key: String,
         @Query("language") language: String
-    ): Call<Actors_model>
+    ): Call<ActorsResponce>
 
     @GET("search/person")
     fun getSearchActor(
         @Query("api_key") api_key: String,
         @Query("language") language: String,
         @Query("query") name: String,
-        ): Call<Actors_model>
+        ): Call<ActorsResponce>
 
     @GET("person/{person_id}")
     fun getActorssDetails(

@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.filmsapp.R
 import com.example.filmsapp.adapters.CustomAdapter
 import com.example.filmsapp.api.ApiInterface
-import com.example.filmsapp.movies_model.Movies
+import com.example.filmsapp.movies_model.MovieResponce
 import com.example.filmsapp.ui.MovieDetailsActivity
 import kotlinx.android.synthetic.main.all_movies_fragment_fragment.*
 import kotlinx.android.synthetic.main.all_movies_fragment_fragment.view.*
@@ -60,13 +60,13 @@ class All_movies_fragment : Fragment() {
                 val apiInterfaceSearch =
                     ApiInterface.create().getSearch(ApiInterface.API_KEY, text.toString())
 
-                apiInterfaceSearch.enqueue(object : Callback<Movies>, CustomAdapter.ItemClickListener {
-                    override fun onResponse(call: Call<Movies>, response: Response<Movies>) {
+                apiInterfaceSearch.enqueue(object : Callback<MovieResponce>, CustomAdapter.ItemClickListener {
+                    override fun onResponse(call: Call<MovieResponce>, response: Response<MovieResponce>) {
                         val adapter = CustomAdapter(response?.body()?.results, this)
                         recyclerview.adapter = adapter
                     }
 
-                    override fun onFailure(call: Call<Movies>, t: Throwable) {
+                    override fun onFailure(call: Call<MovieResponce>, t: Throwable) {
                         Toast.makeText(requireContext(), "ничего не найдено", Toast.LENGTH_SHORT).show()
                     }
 
@@ -90,8 +90,8 @@ class All_movies_fragment : Fragment() {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long, ) {
                 if (adapterView!!.getItemAtPosition(position) == "Рейтинговые") {
                     val face = ApiInterface.create().getTopRatedMovies(ApiInterface.API_KEY)
-                    face.enqueue(object : Callback<Movies>, CustomAdapter.ItemClickListener {
-                        override fun onResponse(call: Call<Movies>?, response: Response<Movies>?) {
+                    face.enqueue(object : Callback<MovieResponce>, CustomAdapter.ItemClickListener {
+                        override fun onResponse(call: Call<MovieResponce>?, response: Response<MovieResponce>?) {
                             val adapter = CustomAdapter(response?.body()?.results, this)
 
                             // Setting the Adapter with the recyclerview
@@ -99,7 +99,7 @@ class All_movies_fragment : Fragment() {
                             Log.d("testLogs", "OnResponse Success ${response?.body()?.results}")
                         }
 
-                        override fun onFailure(call: Call<Movies>?, t: Throwable?) {
+                        override fun onFailure(call: Call<MovieResponce>?, t: Throwable?) {
                             Log.d("testLogs", "OnResponse Success ${t?.message}")
 
                         }
@@ -115,13 +115,13 @@ class All_movies_fragment : Fragment() {
                 else if (adapterView!!.getItemAtPosition(position) == "Сейчас смотрят"){
                     val api = ApiInterface.create().getNowPlayingMovies(ApiInterface.API_KEY)
 
-                    api.enqueue(object : Callback<Movies>, CustomAdapter.ItemClickListener{
-                        override fun onResponse(call: Call<Movies>, response: Response<Movies>) {
+                    api.enqueue(object : Callback<MovieResponce>, CustomAdapter.ItemClickListener{
+                        override fun onResponse(call: Call<MovieResponce>, response: Response<MovieResponce>) {
                             val adapter = CustomAdapter(response?.body()?.results, this)
 
                             recyclerview.adapter = adapter                        }
 
-                        override fun onFailure(call: Call<Movies>, t: Throwable) {
+                        override fun onFailure(call: Call<MovieResponce>, t: Throwable) {
                             TODO("Not yet implemented")
                         }
 
@@ -135,13 +135,13 @@ class All_movies_fragment : Fragment() {
                 }
                 else if (adapterView!!.getItemAtPosition(position) == "Предстоящий"){
                     val api = ApiInterface.create().getUpcomingMovies(ApiInterface.API_KEY)
-                    api.enqueue(object : Callback<Movies>, CustomAdapter.ItemClickListener{
-                        override fun onResponse(call: Call<Movies>, response: Response<Movies>) {
+                    api.enqueue(object : Callback<MovieResponce>, CustomAdapter.ItemClickListener{
+                        override fun onResponse(call: Call<MovieResponce>, response: Response<MovieResponce>) {
                             val adapter = CustomAdapter(response?.body()?.results, this)
 
                             recyclerview.adapter = adapter                        }
 
-                        override fun onFailure(call: Call<Movies>, t: Throwable) {
+                        override fun onFailure(call: Call<MovieResponce>, t: Throwable) {
                             TODO("Not yet implemented")
                         }
 
@@ -154,13 +154,13 @@ class All_movies_fragment : Fragment() {
                 }
                 else if (adapterView!!.getItemAtPosition(position) == "Самые популярные"){
                     val api = ApiInterface.create().getPopularMovies(ApiInterface.API_KEY)
-                    api.enqueue(object : Callback<Movies>, CustomAdapter.ItemClickListener{
-                        override fun onResponse(call: Call<Movies>, response: Response<Movies>) {
+                    api.enqueue(object : Callback<MovieResponce>, CustomAdapter.ItemClickListener{
+                        override fun onResponse(call: Call<MovieResponce>, response: Response<MovieResponce>) {
                             val adapter = CustomAdapter(response?.body()?.results, this)
 
                             recyclerview.adapter = adapter                        }
 
-                        override fun onFailure(call: Call<Movies>, t: Throwable) {
+                        override fun onFailure(call: Call<MovieResponce>, t: Throwable) {
                             TODO("Not yet implemented")
                         }
 
@@ -173,13 +173,13 @@ class All_movies_fragment : Fragment() {
                 }
                 else if (adapterView!!.getItemAtPosition(position) == "Жанры"){
                     val api = ApiInterface.create().getPopularMovies(ApiInterface.API_KEY)
-                    api.enqueue(object : Callback<Movies>, CustomAdapter.ItemClickListener{
-                        override fun onResponse(call: Call<Movies>, response: Response<Movies>) {
+                    api.enqueue(object : Callback<MovieResponce>, CustomAdapter.ItemClickListener{
+                        override fun onResponse(call: Call<MovieResponce>, response: Response<MovieResponce>) {
                             val adapter = CustomAdapter(response?.body()?.results, this)
 
                             recyclerview.adapter = adapter                        }
 
-                        override fun onFailure(call: Call<Movies>, t: Throwable) {
+                        override fun onFailure(call: Call<MovieResponce>, t: Throwable) {
                             TODO("Not yet implemented")
                         }
 
